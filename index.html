@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario de Productos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="container">
+        <section id="welcome-screen" class="active-screen">
+            <h1>Inventario</h1>
+            <h2>Bienvenido</h2>
+            <div class="form-group">
+                <label for="responsible-name">Nombre del responsable:</label>
+                <input type="text" id="responsible-name" required>
+            </div>
+            <div class="form-group">
+                <label for="responsible-code">Código:</label>
+                <input type="text" id="responsible-code" required>
+            </div>
+            <div class="form-group">
+                <label for="shift-select">Seleccione el turno:</label>
+                <select id="shift-select" required>
+                    <option value="" disabled selected>-- Seleccionar Turno --</option>
+                    <option value="1er Turno">1er Turno</option>
+                    <option value="2do Turno">2do Turno</option>
+                    <option value="3er Turno">3er Turno</option>
+                </select>
+            </div>
+            <button id="start-inventory-btn" class="main-btn">Comenzar Inventario</button>
+        </section>
+
+        <section id="inventory-screen" class="hidden-screen">
+            <header>
+                <h3 id="current-user-info"></h3>
+            </header>
+            
+            <div class="search-container">
+                <input type="text" id="product-search" placeholder="Buscar producto por nombre o código...">
+                <ul id="search-results" class="results-list"></ul>
+            </div>
+            
+            <div id="product-actions" class="hidden-screen">
+                <h3 id="selected-product-info"></h3>
+                <div class="form-group">
+                    <label for="product-quantity">Cantidad existente:</label>
+                    <input type="number" id="product-quantity" placeholder="Ingrese la cantidad" required>
+                </div>
+                <div class="btn-group">
+                    <button id="confirm-quantity-btn" class="btn">Confirmar</button>
+                    <button id="cancel-quantity-btn" class="btn secondary-btn">Cancelar</button>
+                </div>
+            </div>
+
+            <button id="generate-report-btn" class="main-btn">Generar Reporte</button>
+        </section>
+
+        <section id="report-confirmation-screen" class="hidden-screen">
+            <h2>¿Desea generar el reporte?</h2>
+            <p>Se borrarán los registros del turno actual.</p>
+            <div class="btn-group">
+                <button id="confirm-report-btn" class="btn">Sí, generar reporte</button>
+                <button id="cancel-report-btn" class="btn secondary-btn">No, volver</button>
+            </div>
+        </section>
+        
+    </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>
